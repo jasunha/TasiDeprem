@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASI DEPREM | Official Windows Distribution</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Exo+2:wght@300;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        :root {
+            --neon-blue: #00d2ff;
+            --royal-blue: #004578;
+            --deep-space: #02040a;
+            --privacy-blue: #4facfe;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--deep-space);
+            color: #fff;
+            font-family: 'Exo 2', sans-serif;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(0, 210, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0, 69, 120, 0.1) 0%, transparent 50%);
+        }
+
+        /* VPN BLOKER */
+        #vpn-gate {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            z-index: 10000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            color: #ff4b2b;
+        }
+
+        /* Üst Navigasyon */
+        nav {
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .flag-ring {
+            width: 40px; height: 40px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.4s;
+            margin-left: 15px;
+            object-fit: cover;
+        }
+
+        .flag-ring:hover { transform: rotate(360deg) scale(1.2); box-shadow: 0 0 20px var(--neon-blue); }
+
+        /* Hero Başlık Bölümü */
+        .hero {
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .logo-glow {
+            font-size: 5rem;
+            color: var(--neon-blue);
+            text-shadow: 0 0 30px var(--neon-blue);
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            letter-spacing: 15px;
+            margin: 0;
+            background: linear-gradient(to right, #fff, var(--neon-blue), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Ana İndirme Kartı */
+        .main-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 210, 255, 0.1);
+            border-radius: 30px;
+            padding: 60px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            text-align: center;
+            transition: 0.5s;
+        }
+
+        .main-card:hover { border-color: var(--neon-blue); transform: translateY(-10px); }
+
+        .btn-download {
+            background: linear-gradient(45deg, var(--neon-blue), var(--royal-blue));
+            color: white;
+            padding: 25px 60px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            border-radius: 15px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.3);
+            transition: 0.4s;
+            font-family: 'Orbitron', sans-serif;
+            border: none;
+        }
+
+        .btn-download:hover { transform: scale(1.05); box-shadow: 0 0 50px var(--neon-blue); color: #fff; }
+
+        /* Sosyal Kanallar */
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .social-item {
+            font-size: 2rem;
+            color: rgba(255,255,255,0.4);
+            transition: 0.4s;
+            text-decoration: none;
+        }
+
+        .social-item:hover { color: var(--neon-blue); transform: scale(1.3); }
+        .fa-discord:hover { color: #5865F2; }
+        .fa-github:hover { color: #fff; }
+
+        /* Mavi Gizlilik Yazısı */
+        .privacy-box {
+            color: var(--privacy-blue);
+            font-size: 0.9rem;
+            max-width: 900px;
+            margin: 100px auto;
+            text-align: center;
+            line-height: 2;
+            padding: 40px;
+            border-top: 1px solid rgba(79, 172, 254, 0.1);
+        }
+
+        footer {
+            padding-bottom: 50px;
+            text-align: center;
+            opacity: 0.2;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+        }
+
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+    </style>
+</head>
+<body>
+
+    <div id="vpn-gate">
+        <i class="fas fa-shield-virus fa-4x mb-4"></i>
+        <h2>VPN DETECTED / ERİŞİM REDDEDİLDİ</h2>
+        <p>TASI Güvenlik Protokolü: Lütfen VPN kapatıp tekrar deneyin.</p>
+    </div>
+
+    <nav>
+        <div style="font-family: 'Orbitron'; letter-spacing: 5px; color: var(--neon-blue);">TASIDEPREM</div>
+        <div class="d-flex">
+            <img src="https://flagcdn.com/w80/tr.png" class="flag-ring" onclick="updateLang('tr')">
+            <img src="https://flagcdn.com/w80/az.png" class="flag-ring" onclick="updateLang('az')">
+        </div>
+    </nav>
+
+    <section class="hero animate__animated animate__fadeIn">
+        <i class="fas fa-house-crack logo-glow"></i>
+        <h1 class="main-title">TASI DEPREM</h1>
+        <p id="sub-text" class="lead opacity-50 mt-3">Bilgisayar Tabanlı Deprem Bilinç ve Eğitim Platformu</p>
+    </header>
+
+    <main class="container">
+        <div class="main-card animate__animated animate__zoomIn">
+            <h2 id="card-h" class="mb-4">Windows Sürümü Yayında</h2>
+            <p id="card-p" class="mb-5 text-muted">Deprem verileri, kişisel bilinç testleri ve 30 günlük sismik analizler uygulama içerisinde sunulmaktadır.</p>
+            
+            <a href="TasiDeprem_v4.exe" class="btn-download">
+                <i class="fab fa-windows"></i> TASI_INSTALLER.EXE
+            </a>
+
+            <div class="social-grid">
+                <a href="https://github.com/tasideprem" target="_blank" class="social-item" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://discord.gg/fP6Y55rJAq" target="_blank" class="social-item" title="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+
+        <div class="privacy-box animate__animated animate__fadeInUp">
+            <i class="fas fa-lock mb-3 d-block"></i>
+            <strong id="p-head">GİZLİLİK POLİTİKASI VE KULLANIM KOŞULLARI</strong><br>
+            <span id="p-body">
+                Tasi Deprem, Windows işletim sistemleri için geliştirilmiş bağımsız bir bilinçlendirme yazılımıdır. Yazılımımız "Erken Uyarı Sistemi" değildir; deprem sonrası veri analizi ve bireysel bilinçlendirme odaklıdır. Uygulama, kullanıcıların kişisel dosyalarına, konum geçmişine veya özel verilerine asla erişmez. Türkiye ve Azerbaycan bölgeleri içindir.
+            </span>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 TasiDeprem - TaSismikDepremİzlemeSistemi
+    </footer>
+
+    <script>
+        // Gelişmiş VPN Engelleme
+        fetch('https://ipapi.co/json/').then(res => res.json()).then(ip => {
+            const forbidden = ["vpn", "proxy", "hosting", "cloud", "server", "datacenter"];
+            const org = (ip.org || "").toLowerCase();
+            if(forbidden.some(word => org.includes(word))) {
+                document.getElementById('vpn-gate').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        // Dil Değiştirme
+        const dictionary = {
+            tr: {
+                sub: "Bilgisayar Tabanlı Deprem Bilinç ve Eğitim Platformu",
+                ch: "Windows Sürümü Yayında",
+                cp: "Deprem verileri, kişisel bilinç testleri ve 30 günlük sismik analizler uygulama içerisinde sunulmaktadır.",
+                ph: "GİZLİLİK POLİTİKASI VE KULLANIM KOŞULLARI",
+                pb: "Tasi Deprem, Windows işletim sistemleri için geliştirilmiş bağımsız bir bilinçlendirme yazılımıdır. Yazılımımız "Erken Uyarı Sistemi" değildir; deprem sonrası veri analizi ve bireysel bilinçlendirme odaklıdır. Uygulama, kullanıcıların kişisel dosyalarına, konum geçmişine veya özel verilerine asla erişmez. Türkiye ve Azerbaycan bölgeleri içindir"
+            },
+            az: {
+                sub: "Kompüter Əsaslı Zəlzələ Maarifləndirmə və Təhsil Platforması",
+                ch: "Windows Versiyası Yayındadır",
+                cp: "Zəlzələ məlumatları, fərdi maarifləndirmə testləri və 30 günlük seysmik analizlər tətbiq daxilində təqdim olunur.",
+                ph: "MƏXFİLİK SİYASƏTİ VƏ İSTİFADƏ ŞƏRTLƏRİ",
+                pb: " Tasi Earthquake Windows əməliyyat sistemləri üçün hazırlanmış müstəqil məlumatlandırma proqramıdır. Proqram təminatımız "Erkən Xəbərdarlıq Sistemi" DEYİL; o, zəlzələdən sonrakı məlumatların təhlilinə və fərdi məlumatlılığa diqqət yetirir. Tətbiq heç vaxt istifadəçilərin şəxsi fayllarına, məkan tarixçəsinə və ya şəxsi məlumatlarına daxil olmur. Türkiyə və Azərbaycanda istifadə üçün nəzərdə tutulub.."
+            }
+        };
+
+        function updateLang(lang) {
+            document.getElementById('sub-text').innerText = dictionary[lang].sub;
+            document.getElementById('card-h').innerText = dictionary[lang].ch;
+            document.getElementById('card-p').innerText = dictionary[lang].cp;
+            document.getElementById('p-head').innerText = dictionary[lang].ph;
+            document.getElementById('p-body').innerText = dictionary[lang].pb;
+        }
+    </script>
+</body>
+</html>
